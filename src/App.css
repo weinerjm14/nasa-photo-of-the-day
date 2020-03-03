@@ -36,3 +36,18 @@
     transform: rotate(360deg);
   }
 }
+.app_container{
+  width: 80%;
+  margin: 2% auto;
+  border: 3px inset royalblue;
+}
+.app_container img {
+  width: 500px;
+  height: auto;
+ 
+  border: 3px inset cyan;
+}
+p {
+  width: 75%;
+  margin: 2% auto;
+}

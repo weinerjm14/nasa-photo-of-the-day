@@ -3,22 +3,34 @@ import "./App.css";
 import axios from "axios";
 
 import AppContainer from "./AppContainer";
-import data from "./dummydata"
+import { useState, useEffect } from "react";
 // axios.get("https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY").then(response => {
 //      console.log(response.data);
 //     });
 function App() {
-  return (
+  let [data, setData] = useState([]);
+  useEffect(() => {
+    axios.get("https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY&date=2020-03-02").then(response => {
+      setData(response.data);
+    });
+  }, []);
+    
+    return (
+    
     <div className="App">
-      
+
+     
       <h1>Your Nasa APOD APP</h1>
       <AppContainer 
-      title = {data.title}
-      hdrul = {data.hdurl}
+        title={data.title}
+        hdurl={data.hdurl}
+        explanation={data.explanation}
+      
       />
     </div>
-      
-  );
+    )
+    
+ 
 }
 
-export default App;
+    export default App;
