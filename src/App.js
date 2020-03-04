@@ -28,6 +28,7 @@ function App() {
         hdurl={data.hdurl}
         explanation={data.explanation}
       />
+      <NeoApp />
     </div>
     )
     
