@@ -4,12 +4,12 @@ import styled from "styled-components";
 
 //styles
 let ContainerApp = styled.section`
-    width: 50vw;
+    width: 40vw;
     height: auto;
     border: 3px inset PowderBlue;
     background-color: SeaShell;
     padding-bottom: 2%;
-    margin: 0 auto;
+    // margin: 0 auto;
 `;
 let ContainerTitle = styled.h2`
     font-family: "Oxygen";
@@ -31,9 +31,11 @@ let VideoStyle = styled.iframe`
     height: 315px;
     border: 3px inset cyan;
 `;
-let CreditsStyle = styled.p `
-  font-size: .5rem;
-  font-family: "Monaco";
+let StyledH2 = styled.h2 `
+   font-family: "Oxygen";
+   font-size: 1.8rem;
+   color: cornflowerblue;
+   text-decoration: underline;
 `;
 
 
@@ -44,6 +46,7 @@ const AppContainer = props => {
       
     <ContainerApp className="app_container">
       
+      <StyledH2>Today's APOD</StyledH2> 
       <ContainerTitle>{props.title}</ContainerTitle>
       
       {props.media_type === "image" ? (
@@ -56,7 +59,7 @@ const AppContainer = props => {
       
       
       <StyledP>{props.explanation}</StyledP>
-      <CreditsStyle>Background image by <a href="https://pixabay.com/users/Hans-2/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=1654074">Hans Braxmeier</a> from <a href="https://pixabay.com/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=1654074">Pixabay</a></CreditsStyle>
+      
     </ContainerApp>
    
     

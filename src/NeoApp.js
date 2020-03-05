@@ -3,21 +3,29 @@ import "./App.css";
 import axios from "axios";
 import { useEffect, useState } from "react";
 
-import NeoTotal from "./NeoAppTotal";
-import NeoContainer from "./NeoAppContainer"
+import NeoAppContainer from "./NeoAppContainer"
+import styled from "styled-components";
+//styles
+
+
+//APP
 function NeoApp () {
-    let [neoData, setNeoData] = useState([]);
+    let [data, setData] = useState([]);
     useEffect(() => {
-        axios.get("https://ssd-api.jpl.nasa.gov/cad.api?dist-max=10LD&date-min=2020-01-01&sort=dist&limit=10&fullname=true").then(response => {
-          setNeoData(response.data);
+        axios.get("https://api.nasa.gov/planetary/apod?api_key=4nGv4LzKfyBkis8utldeK9CNmYOpdOtHOHHIxa41").then(response => {
+          setData(response.data);
         });
     }, [])
     return (
         <section className="neo_app">
-        <NeoContainer 
-            name = {neoData[10]}
-        />
-        <NeoTotal />
+      
+      <NeoAppContainer 
+        title={data.title}
+        hdurl={data.hdurl}
+        explanation={data.explanation}
+        url={data.url}
+        media_type = {data.media_type}
+      />
         </section>
     )
     
