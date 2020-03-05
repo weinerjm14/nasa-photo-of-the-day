@@ -20,7 +20,7 @@ let StyledH1 = styled.h1 `
 function App() {
   let [data, setData] = useState([]);
   useEffect(() => {
-    axios.get("https://api.nasa.gov/planetary/apod?api_key=4nGv4LzKfyBkis8utldeK9CNmYOpdOtHOHHIxa41&date=2020-03-02").then(response => {
+    axios.get("https://api.nasa.gov/planetary/apod?api_key=4nGv4LzKfyBkis8utldeK9CNmYOpdOtHOHHIxa41").then(response => {
       setData(response.data);
     });
   }, []);
@@ -30,11 +30,13 @@ function App() {
     <div className="App">
 
      
-      <StyledH1>Your Nasa APOD And NEO APP</StyledH1>
+      <StyledH1>Your Nasa APOD App</StyledH1>
       <AppContainer 
         title={data.title}
         hdurl={data.hdurl}
         explanation={data.explanation}
+        url={data.url}
+        media_type = {data.media_type}
       />
      
     </div>

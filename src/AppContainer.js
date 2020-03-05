@@ -1,11 +1,12 @@
 import React from "react";
 import styled from "styled-components";
-
+// import BbImage from "./milky-way.jpg"
 let ContainerApp = styled.section`
     width: 50vw;
     height: auto;
     margin: 2% auto; 
     border: 3px inset royalblue;
+    background-color: SeaShell;
 `;
 let ContainerTitle = styled.h2`
     font-family: "Oxygen";
