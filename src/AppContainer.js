@@ -21,8 +21,14 @@ let ImgStyled = styled.img`
 let StyledP = styled.p`
     font-family: "Roboto";
     width: 75%;
-    margin: 2% auto;
+    margin: 3% auto;
     
+    
+`;
+let VideoStyle = styled.iframe`
+    width: 560px;
+    height: 315px;
+    border: 3px inset cyan;
 `;
 const AppContainer = props => {
     
@@ -31,7 +37,16 @@ const AppContainer = props => {
     <ContainerApp className="app_container">
       
       <ContainerTitle>{props.title}</ContainerTitle>
-      <ImgStyled src={props.hdurl} alt={props.title}></ImgStyled>
+      
+      {props.media_type === "image" ? (
+        <ImgStyled src={props.hdurl} alt={props.title}></ImgStyled>
+       ) : (<
+        VideoStyle 
+      src={props.url} title={props.title} />
+            
+       )}
+      
+      
       <StyledP>{props.explanation}</StyledP>
     </ContainerApp>
    
