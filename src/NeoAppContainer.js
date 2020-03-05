@@ -46,8 +46,11 @@ const NeoAppContainer = props => {
   return (
       
     <ContainerApp className="app_container">
-       <StyledH2>Pick Another Date To See</StyledH2> 
-      
+       <StyledH2>Pick Another Date To See</StyledH2>
+       <form>
+       <label for="newdate">Date To See:    </label>
+        <input type="date" id="newdate" name="new-date"></input> 
+        </form>
       <ContainerTitle>{props.title}</ContainerTitle>
       
       {props.media_type === "image" ? (

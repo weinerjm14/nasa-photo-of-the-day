@@ -11,10 +11,14 @@ import styled from "styled-components";
 //APP
 function NeoApp () {
     let [data, setData] = useState([]);
+    let [newDate, setNewDate] = useState("2020-01-30")
     useEffect(() => {
-        axios.get("https://api.nasa.gov/planetary/apod?api_key=4nGv4LzKfyBkis8utldeK9CNmYOpdOtHOHHIxa41").then(response => {
+        axios.get(`https://api.nasa.gov/planetary/apod?api_key=4nGv4LzKfyBkis8utldeK9CNmYOpdOtHOHHIxa41&date=${newDate}`).then(response => {
           setData(response.data);
-        });
+        })
+        .then(error => {
+            console.log(error);
+        })
     }, [])
     return (
         <section className="neo_app">
