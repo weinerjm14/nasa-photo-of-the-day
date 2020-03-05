@@ -3,16 +3,24 @@ import "./App.css";
 import axios from "axios";
 
 import AppContainer from "./AppContainer";
-import NeoApp from './NeoApp';
+import styled from "styled-components";
 import { useState, useEffect } from "react";
 
 // axios.get("https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY").then(response => {
 //      console.log(response.data);
 //     });
+
+let StyledH1 = styled.h1 `
+   font-family: "Oxygen";
+   font-size: 2rem;
+   color: cornflowerblue;
+`;
+
+
 function App() {
   let [data, setData] = useState([]);
   useEffect(() => {
-    axios.get("https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY&date=2020-03-02").then(response => {
+    axios.get("https://api.nasa.gov/planetary/apod?api_key=4nGv4LzKfyBkis8utldeK9CNmYOpdOtHOHHIxa41&date=2020-03-02").then(response => {
       setData(response.data);
     });
   }, []);
@@ -22,13 +30,13 @@ function App() {
     <div className="App">
 
      
-      <h1>Your Nasa APOD And NEO APP</h1>
+      <StyledH1>Your Nasa APOD And NEO APP</StyledH1>
       <AppContainer 
         title={data.title}
         hdurl={data.hdurl}
         explanation={data.explanation}
       />
-      <NeoApp />
+     
     </div>
     )
     
