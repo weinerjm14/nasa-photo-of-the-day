@@ -1,10 +1,10 @@
 import React from "react";
 import "./App.css";
-import axios from "axios";
+// import axios from "axios";
 import { useEffect, useState } from "react";
 
 import NeoAppContainer from "./NeoAppContainer"
-import styled from "styled-components";
+// import styled from "styled-components";
 //styles
 
 

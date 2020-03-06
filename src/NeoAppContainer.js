@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import axios from "axios";
 
@@ -44,22 +44,22 @@ let StyledH2 = styled.h2`
 const NeoAppContainer = props => {
   let [newDate, setNewDate] = useState("2020-01-30");
   let [data, setData] = useState([]);
-  console.log( document.getElementById("newdate").value);
-  // {const dateEl = document.getElementById("newdate");
+  // console.log( document.getElementById("newdate").value);
 
-  //   dateEl.addEventListener('change', (event) => {
-  //     setNewDate(event.target.value);
-      
-  //   });}  
   useEffect(() => {
-      axios.get(`https://api.nasa.gov/planetary/apod?api_key=4nGv4LzKfyBkis8utldeK9CNmYOpdOtHOHHIxa41&date=${newDate}`).then(response => {
+    axios
+      .get(
+        `https://api.nasa.gov/planetary/apod?api_key=4nGv4LzKfyBkis8utldeK9CNmYOpdOtHOHHIxa41&date=${newDate}`
+      )
+      .then(response => {
         setData(response.data);
+        
       })
       .then(error => {
-          console.log(error);
-      })
-  }, [])
-  
+        console.log(error);
+      });
+  }, []);
+
   return (
     <ContainerApp className="app_container">
       <StyledH2>Pick Another Date To See</StyledH2>
@@ -67,6 +67,10 @@ const NeoAppContainer = props => {
         <label for="newdate">Date To See: </label>
         <input type="date" id="newdate" name="new-date"></input>
       </form>
+      { 
+      document.getElementById("newdate").addEventListener("change", event => {
+            setNewDate(Date.parse(document.getElementById("newdate").value))})
+      }
       <ContainerTitle>{props.title}</ContainerTitle>
 
       {props.media_type === "image" ? (
