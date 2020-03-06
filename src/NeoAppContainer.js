@@ -1,5 +1,7 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
 import styled from "styled-components";
+import axios from "axios";
+
 // import BbImage from "./milky-way.jpg"
 
 //styles
@@ -40,6 +42,24 @@ let StyledH2 = styled.h2`
 
 //Component
 const NeoAppContainer = props => {
+  let [newDate, setNewDate] = useState("2020-01-30");
+  let [data, setData] = useState([]);
+  console.log( document.getElementById("newdate").value);
+  // {const dateEl = document.getElementById("newdate");
+
+  //   dateEl.addEventListener('change', (event) => {
+  //     setNewDate(event.target.value);
+      
+  //   });}  
+  useEffect(() => {
+      axios.get(`https://api.nasa.gov/planetary/apod?api_key=4nGv4LzKfyBkis8utldeK9CNmYOpdOtHOHHIxa41&date=${newDate}`).then(response => {
+        setData(response.data);
+      })
+      .then(error => {
+          console.log(error);
+      })
+  }, [])
+  
   return (
     <ContainerApp className="app_container">
       <StyledH2>Pick Another Date To See</StyledH2>

@@ -6,7 +6,7 @@ import AppContainer from "./AppContainer";
 import styled from "styled-components";
 import { useState, useEffect } from "react";
 import bgImage from "./starry-sky.jpg";
-import NeoApp from "./NeoApp";
+// import NeoApp from "./NeoApp";
 // axios.get("https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY").then(response => {
 //      console.log(response.data);
 //     });
@@ -63,7 +63,7 @@ function App() {
             url={data.url}
             media_type={data.media_type}
           />
-          <NeoApp />
+          {/* <NeoApp /> */}
         </FlexContainer>
         <CreditsStyle>
           Background image by{" "}
