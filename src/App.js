@@ -1,11 +1,12 @@
-import React from "react";
-import "./App.css";
-import axios from "axios";
+import React from 'react';
+import './App.css';
+import axios from 'axios';
 
-import AppContainer from "./AppContainer";
-import styled from "styled-components";
-import { useState, useEffect } from "react";
-import bgImage from "./starry-sky.jpg";
+import AppContainer from './AppContainer';
+import styled from 'styled-components';
+import { useState, useEffect } from 'react';
+import bgImage from './starry-sky.jpg';
+import moment from 'moment';
 // import NeoApp from "./NeoApp";
 // axios.get("https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY").then(response => {
 //      console.log(response.data);
@@ -19,7 +20,7 @@ let ContainerAll = styled.div`
 `;
 
 let StyledH1 = styled.h1`
-  font-family: "Oxygen";
+  font-family: 'Oxygen';
   font-size: 2rem;
   width: 50vw;
   color: cornflowerblue;
@@ -30,7 +31,7 @@ let StyledH1 = styled.h1`
 `;
 let CreditsStyle = styled.p`
   font-size: 0.5rem;
-  font-family: "Monaco";
+  font-family: 'Monaco';
   background-color: SeaShell;
 `;
 let FlexContainer = styled.div`
@@ -41,12 +42,13 @@ let FlexContainer = styled.div`
 //APP
 function App() {
   let [data, setData] = useState([]);
-  const today = new Date();
-  const date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
+
+  const today = moment().format('YYYY-MM-DD');
+
   useEffect(() => {
     axios
       .get(
-        `https://api.nasa.gov/planetary/apod?api_key=4nGv4LzKfyBkis8utldeK9CNmYOpdOtHOHHIxa41&date=${date}`
+        `https://api.nasa.gov/planetary/apod?api_key=4nGv4LzKfyBkis8utldeK9CNmYOpdOtHOHHIxa41&date=${today}`
       )
       .then(response => {
         setData(response.data);
@@ -54,7 +56,7 @@ function App() {
   }, []);
 
   return (
-    <div className="App">
+    <div className='App'>
       <ContainerAll>
         <StyledH1>Your Nasa APOD App</StyledH1>
         <FlexContainer>
@@ -68,12 +70,12 @@ function App() {
           {/* <NeoApp /> */}
         </FlexContainer>
         <CreditsStyle>
-          Background image by{" "}
-          <a href="https://pixabay.com/users/Hans-2/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=1654074">
+          Background image by{' '}
+          <a href='https://pixabay.com/users/Hans-2/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=1654074'>
             Hans Braxmeier
-          </a>{" "}
-          from{" "}
-          <a href="https://pixabay.com/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=1654074">
+          </a>{' '}
+          from{' '}
+          <a href='https://pixabay.com/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=1654074'>
             Pixabay
           </a>
         </CreditsStyle>
