@@ -42,6 +42,7 @@ let FlexContainer = styled.div`
 //APP
 function App() {
   let [data, setData] = useState([]);
+
   const today = moment().format('YYYY-MM-DD');
 
   useEffect(() => {
