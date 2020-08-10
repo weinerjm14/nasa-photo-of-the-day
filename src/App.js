@@ -41,10 +41,12 @@ let FlexContainer = styled.div`
 //APP
 function App() {
   let [data, setData] = useState([]);
+  const today = new Date(),
+  const date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate()
   useEffect(() => {
     axios
       .get(
-        "https://api.nasa.gov/planetary/apod?api_key=4nGv4LzKfyBkis8utldeK9CNmYOpdOtHOHHIxa41"
+        `https://api.nasa.gov/planetary/apod?api_key=4nGv4LzKfyBkis8utldeK9CNmYOpdOtHOHHIxa41&date=${date}`
       )
       .then(response => {
         setData(response.data);
