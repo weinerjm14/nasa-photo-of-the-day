@@ -41,8 +41,8 @@ let FlexContainer = styled.div`
 //APP
 function App() {
   let [data, setData] = useState([]);
-  const today = new Date(),
-  const date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate()
+  const today = new Date();
+  const date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
   useEffect(() => {
     axios
       .get(
